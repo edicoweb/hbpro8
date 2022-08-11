@@ -12,7 +12,7 @@ cd hbpro8
 
 ### Descargar Dependencias del Proyecto
 
-    Como las dependencias del proyecto las maneja **composer** debemos ejecutar el comando:
+Como las dependencias del proyecto las maneja **composer** debemos ejecutar el comando:
 
 ```
 composer install
