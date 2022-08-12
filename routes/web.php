@@ -1,15 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-$portafolio = [
-    ['title' => 'Proyecto1'],
-    ['title' => 'Proyecto2'],
-    ['title' => 'Proyecto3']
-];
+use App\Http\Controllers\PostController;
 
 Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
-Route::view('/posts', 'posts.index', compact('portafolio'))->name('posts');
+Route::resource('/post', PostController::class)->names('post');
 Route::view('/contact', 'contact')->name('contact');
 
