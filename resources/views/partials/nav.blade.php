@@ -1,8 +1,14 @@
+<style>
+    .active a {
+    color: red;
+}
+</style>
+
 <nav>
     <ul>
-        <li><a href="{{ route('home') }}">Inicio</a></li>
-        <li><a href="{{ route('about') }}">Nosotros</a></li>
-        <li><a href="{{ route('post.index') }}">Blog</a></li>
-        <li><a href="{{ route('contact') }}">Contacto</a></li>
+        <li class="{{ setActive('home') }}"><a href="{{ route('home') }}">Inicio</a></li>
+        <li class="{{ setActive('about') }}"><a href="{{ route('about') }}">Nosotros</a></li>
+        <li class="{{ setActive('post*') }}"><a href="{{ route('post.index') }}">Blog</a></li>
+        <li class="{{ setActive('contact') }}"><a href="{{ route('contact') }}">Contacto</a></li>
     </ul>
 </nav>
