@@ -16,7 +16,8 @@ class PostController extends Controller
             ['title' => 'Proyecto3']
         ];
 
-        return view('post.index', compact('portafolio'));
+        return view('post.index', compact('portafolio'
+    ));
     }
 
     public function create()
