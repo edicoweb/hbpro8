@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+
+use App\Mail\MessageReceived;
 
 class ContactController extends Controller
 {
@@ -19,14 +22,16 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        request()->validate([
+        $message = request()->validate([
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
             'content' => 'required|min:5'
         ]);
 
-        return $request;
+        Mail::to('edicoweb@hackbots.io')->queue(new MessageReceived($message));
+
+        return 'Mensaje enviado';
     }
 
     public function show($id)

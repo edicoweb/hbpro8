@@ -19,7 +19,7 @@
         {!! $errors->first('subject', '<small>:message</small><br>') !!}
 
         <label for="content">Contenido</label><br>
-        <textarea name="content" id="" cols="20" rows="10" placeholder="Mensaje...">{{ old('content') }}</textarea><br>
+        <textarea name="content" id="" cols="20" rows="5" placeholder="Mensaje...">{{ old('content') }}</textarea><br>
         {!! $errors->first('content', '<small>:message</small><br>') !!}
 
         <button>Enviar</button>
