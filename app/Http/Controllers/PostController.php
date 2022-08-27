@@ -10,14 +10,10 @@ class PostController extends Controller
 
     public function index()
     {
-        $portafolio = [
-            ['title' => 'Proyecto1'],
-            ['title' => 'Proyecto2'],
-            ['title' => 'Proyecto3']
-        ];
+        // $posts = \DB::table('post')-> get();
+        $posts = Post::latest()->paginate(1);
 
-        return view('post.index', compact('portafolio'
-    ));
+        return view('post.index', compact('posts'));
     }
 
     public function create()
