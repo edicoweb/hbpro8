@@ -18,7 +18,7 @@ class PostController extends Controller
 
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     public function store(Request $request)
@@ -28,7 +28,9 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        //
+        // $posts = Post::findOrFail($id);
+        $posts = $post;
+        return view('post.show', compact('posts'));
     }
 
     public function edit(Post $post)
