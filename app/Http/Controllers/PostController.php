@@ -11,7 +11,7 @@ class PostController extends Controller
     public function index()
     {
         // $posts = \DB::table('post')-> get();
-        $posts = Post::latest()->paginate(1);
+        $posts = Post::latest()->paginate(5);
 
         return view('post.index', compact('posts'));
     }
@@ -23,7 +23,7 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        //
+        return $request->get('title');
     }
 
     public function show(Post $post)
