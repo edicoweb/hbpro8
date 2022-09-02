@@ -31,7 +31,8 @@ class ContactController extends Controller
 
         Mail::to('edicoweb@hackbots.io')->queue(new MessageReceived($message));
 
-        return 'Mensaje enviado';
+        // return 'Mensaje enviado';
+        return back()->with('status', 'Mensaje enviado con éxito');
     }
 
     public function show($id)

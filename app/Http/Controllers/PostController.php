@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('index', 'show');
+    }
 
     public function index()
     {
@@ -25,7 +28,7 @@ class PostController extends Controller
     public function store(PostValidationRequest $request)
     {
         Post::create($request->validated());
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('status', 'El Post fue creado con éxito');
     }
 
     public function show(Post $post)
@@ -43,12 +46,12 @@ class PostController extends Controller
     {
         $post->update($request->validated());
 
-        return redirect()->route('post.show', $post);
+        return redirect()->route('post.show', $post)->with('status', 'El Post fue actualizado con éxito');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('status', 'El Post fue eliminado con exito');
     }
 }

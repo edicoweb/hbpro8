@@ -3,7 +3,6 @@
 
 @section('content')
     <h2>Contáctanos</h2>
-
     <form action="{{route('contact.store')}}" method="post">
         @csrf
         <label for="name">Nombre</label><br>

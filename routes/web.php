@@ -9,3 +9,5 @@ Route::view('/about', 'about')->name('about');
 
 Route::resource('post', PostController::class)->names('post');
 Route::resource('Contact', ContactController::class)->names('contact');
+
+Auth::routes(['register' => false]);
