@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Http\Requests\PostValidationRequest;
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,39 +14,41 @@ class PostController extends Controller
     {
         // $posts = \DB::table('post')-> get();
         $posts = Post::latest()->paginate(5);
-
         return view('post.index', compact('posts'));
     }
 
     public function create()
     {
-        return view('post.create');
+        return view('post.create', ['posts' => new Post]);
     }
 
-    public function store(Request $request)
+    public function store(PostValidationRequest $request)
     {
-        return $request->get('title');
+        Post::create($request->validated());
+        return redirect()->route('post.index');
     }
 
     public function show(Post $post)
     {
-        // $posts = Post::findOrFail($id);
         $posts = $post;
         return view('post.show', compact('posts'));
     }
 
     public function edit(Post $post)
     {
-        //
+        return view('post.edit', ['posts' => $post]);
     }
 
-    public function update(Request $request, Post $post)
+    public function update(PostValidationRequest $request, Post $post)
     {
-        //
+        $post->update($request->validated());
+
+        return redirect()->route('post.show', $post);
     }
 
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('post.index');
     }
 }

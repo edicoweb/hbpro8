@@ -11,7 +11,7 @@
         {!! $errors->first('name', '<small>:message</small><br>') !!}
 
         <label for="email">Correo Electrónico</label><br>
-        <input type="text" name="email" placeholder="hackbots@example.com" value="{{old('email')}}"><br>
+        <input type="text" name="email" placeholder="usuario@example.com" value="{{old('email')}}"><br>
         {!! $errors->first('email', '<small>:message</small><br>') !!}
 
         <label for="subject">Asunto</label><br>
