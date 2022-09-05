@@ -7,10 +7,6 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.active a {
-    color: red;
-}
-
-.navbar{
-    --bs-navbar-padding-x: 0.5rem;
+.h-screen {
+    height: 100vh;
 }

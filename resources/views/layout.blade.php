@@ -9,10 +9,17 @@
     <script src="/js/app.js" defer></script>
 </head>
 <body>
-
-    @include('partials.nav')
-    @include('partials.sessionStatus')
-    @yield('content')
-
+    <div id="app" class="d-flex flex-column h-screen justify-content-between">
+        <header>
+            @include('partials.nav')
+            @include('partials.sessionStatus')
+        </header>
+        <main>
+            @yield('content')
+        </main>
+        <footer class="bg-white text-center text-black-50 py-1 shadow">
+            {{ config('app.name') }} | copyright @ {{ date('Y') }}
+        </footer>
+    </div>
 </body>
 </html>

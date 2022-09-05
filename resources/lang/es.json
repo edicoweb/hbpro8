@@ -6,5 +6,10 @@
     "Send": "Enviar",
     "Login": "Iniciar Sesion",
     "Logout": "Cerrar Sesion",
-    "Project": "Proyecto"
+    "Project": "Proyecto",
+    "Email Address": "Correo electrónico",
+    "Password": "Contraseña",
+    "Remember Me": "Recuérdeme",
+    "Forgot Your Password?": "Olvidaste tu contraseña?"
+
 }

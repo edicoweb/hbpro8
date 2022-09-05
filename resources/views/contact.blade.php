@@ -2,25 +2,56 @@
 @section('title', 'Contacto')
 
 @section('content')
-    <h2>Contáctanos</h2>
-    <form action="{{route('contact.store')}}" method="post">
-        @csrf
-        <label for="name">Nombre</label><br>
-        <input type="text" name="name" placeholder="Mi Nombre" value="{{old('name')}}"><br>
-        {!! $errors->first('name', '<small>:message</small><br>') !!}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10 col-lg-5 mx-auto">
+                <form action="{{route('contact.store')}}" method="post" class="bg-white shadow rounded py-3 px-4">
+                    @csrf
+                    <h1 class="display-7">Contáctanos</h1>
+                    <div class="form-group pb-2">
+                        <label for="name">Nombre:</label>
+                        <input type="text" name="name" placeholder="Edil..." value="{{old('name')}}" class="form-control bg-light shadow-sm @error('name') is-invalid @else border-0 @enderror">
+                        <!-- {!! $errors->first('name', '<small>:message</small><br>') !!} -->
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-        <label for="email">Correo Electrónico</label><br>
-        <input type="text" name="email" placeholder="usuario@example.com" value="{{old('email')}}"><br>
-        {!! $errors->first('email', '<small>:message</small><br>') !!}
+                    <div class="form-group pb-2">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="text" name="email" placeholder="usuario@example.com" value="{{old('email')}}" class="form-control bg-light shadow-sm @error('email') is-invalid @else border-0 @enderror">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-        <label for="subject">Asunto</label><br>
-        <input type="text" name="subject" placeholder="Asunto" value="{{old('subject')}}"><br>
-        {!! $errors->first('subject', '<small>:message</small><br>') !!}
+                    <div class="form-group pb-2">
+                        <label for="subject">Asunto:</label>
+                        <input type="text" name="subject" placeholder="Asunto" value="{{old('subject')}}" class="form-control bg-light shadow-sm @error('subject') is-invalid @else border-0 @enderror">
+                        @error('subject')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-        <label for="content">Contenido</label><br>
-        <textarea name="content" id="" cols="20" rows="5" placeholder="Mensaje...">{{ old('content') }}</textarea><br>
-        {!! $errors->first('content', '<small>:message</small><br>') !!}
+                    <div class="form-group pb-2">
+                        <label for="content">Contenido: </label>
+                        <textarea name="content" id="" cols="" rows="2" placeholder="Mensaje..." class="form-control bg-light shadow-sm @error('content') is-invalid @else border-0 @enderror">{{ old('content') }}</textarea>
+                        @error('content')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-        <button>Enviar</button>
-    </form>
+                    <button class="btn btn-primary w-100">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
