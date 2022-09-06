@@ -7,7 +7,8 @@
             <div class="col-12 col-sm-10 col-lg-5 mx-auto">
                 <form action="{{route('contact.store')}}" method="post" class="bg-white shadow rounded py-3 px-4">
                     @csrf
-                    <h1 class="display-7">Contáctanos</h1>
+                    <h1 class="display-7 p-0">Contáctanos</h1>
+                    <hr>
                     <div class="form-group pb-2">
                         <label for="name">Nombre:</label>
                         <input type="text" name="name" placeholder="Edil..." value="{{old('name')}}" class="form-control bg-light shadow-sm @error('name') is-invalid @else border-0 @enderror">
