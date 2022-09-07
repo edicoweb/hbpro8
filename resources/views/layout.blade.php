@@ -10,11 +10,11 @@
 </head>
 <body>
     <div id="app" class="d-flex flex-column mh-100 h-screen justify-content-between">
-        <header class="mb-3">
+        <header class="mb-4">
             @include('partials.nav')
             @include('partials.sessionStatus')
         </header>
-        <main>
+        <main class=" mt-5 position-realitve">
                 @yield('content')
         </main>
         <footer class="bg-white text-center text-black-50 py-1 shadow mt-3">
