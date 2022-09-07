@@ -17,7 +17,7 @@
         <main>
                 @yield('content')
         </main>
-        <footer class="bg-white text-center text-black-50 py-1 shadow">
+        <footer class="bg-white text-center text-black-50 py-1 shadow mt-3">
             {{ config('app.name') }} | copyright @ {{ date('Y') }}
         </footer>
     </div>

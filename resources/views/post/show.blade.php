@@ -6,21 +6,19 @@
             <h3>{{ $posts->title }}</h3>
             <p class="text-secondary">{{ $posts->content }}</p>
             <p class="text-black-50">{{ $posts->updated_at->diffForHumans() }}</p>
-
-                @auth()
-                    <div class="d-flex justify-content-between align-items-center">
-                        <a href="{{ route('post.index') }}">Regresar</a>
+                <div class="d-flex justify-content-between align-items-center">
+                    @auth()
                         <div class="btn-group">
                             <a class="btn btn-primary btn-sm" href="{{route('post.edit', $posts)}}">Editar</a>
                             <a class="btn btn-outline-secondary btn-sm" href="#" onclick="document.getElementById('delete-proyect').submit()">Eliminar</a>
                         </div>
-                    </div>
-
-                    <form id="delete-proyect" action="{{ route('post.destroy', $posts) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                @endauth
+                    @endauth
+                    <a href="{{ route('post.index') }}">Regresar</a>
+                </div>
+                <form id="delete-proyect" action="{{ route('post.destroy', $posts) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                </form>
         </div>
     </div>
 @endsection
