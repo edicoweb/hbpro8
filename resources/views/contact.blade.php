@@ -5,9 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-10 col-lg-5 mx-auto">
-                <form action="{{route('contact.store')}}" method="post" class="bg-white shadow rounded py-3 px-4">
+                <form action="{{route('contact.store')}}" method="post" class="bg-white shadow-sm rounded py-3 px-4">
                     @csrf
-                    <h1 class="display-7 p-0">Contáctanos</h1>
+                    <h3>Contáctanos</h3>
                     <hr>
                     <div class="form-group pb-2">
                         <label for="name">Nombre:</label>
@@ -50,7 +50,7 @@
                         @enderror
                     </div>
 
-                    <button class="btn btn-primary w-100">Enviar</button>
+                    <button class="btn btn-primary w-100">Enviar mensaje</button>
                 </form>
             </div>
         </div>
